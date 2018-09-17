@@ -162,16 +162,35 @@ def move_point_to_point8(x1, y1, x2, y2, frame):
         get_events()
 
 
+def move_point_to_point9(x1, y1, x2, y2, frame):
+    x_distance = x1 - x2
+    y_distance = y1 - y2
+    gradient = y_distance // x_distance
+
+    while (x2 < x1):
+        clear_canvas()
+        grass.draw(400, 30)
+        character.clip_draw(frame * 100, 0, 100, 100, x1, y1)
+        update_canvas()
+        frame = (frame + 1) % 8
+        x1 -= 2
+        y1 -= 0.5 * gradient
+
+        delay(0.01)
+        get_events()
+
+
 
 while True:
-    #move_point_to_point1(203,535,132,243,frame)
-    #move_point_to_point2(132,243,535,470,frame)
-    #move_point_to_point3(535, 470,477, 203, frame)
-    #move_point_to_point4(477,203,715,136,frame)
+    move_point_to_point1(203,535,132,243,frame)
+    move_point_to_point2(132,243,535,470,frame)
+    move_point_to_point3(535, 470,477, 203, frame)
+    move_point_to_point4(477,203,715,136,frame)
     move_point_to_point5(715, 136, 316, 225, frame)
     move_point_to_point6(316, 225, 510, 92, frame)
     move_point_to_point7(510, 92, 692, 518, frame)
     move_point_to_point8(682, 336, 712, 349, frame)
+    move_point_to_point9(712, 349, 203, 535, frame)
 
 
 close_canvas()
