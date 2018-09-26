@@ -171,7 +171,17 @@ def move_point_to_point9(x1, y1, x2, y2, frame):
         clear_canvas()
         grass.draw(400, 30)
         character.clip_draw(frame * 100, 0, 100, 100, x1, y1)
-        update_canvas()
+        update_
+
+
+
+
+
+
+
+
+
+        canvas()
         frame = (frame + 1) % 8
         x1 -= 2
         y1 -= 0.5 * gradient
