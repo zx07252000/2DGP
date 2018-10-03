@@ -8,6 +8,22 @@ open_canvas(Start_background_WIDTH,Start_background_HEIGHT)
 
 Start_background = load_image('Title background.png')
 
+def handle_events():
+    pass
+
+
+def Start_background_to_Character_background():
+    global x,y
+    events=get_events()
+    pass
+
+def Character_background_to_GamePlay_background():
+    pass
+
+
+
+
+
 x=0
 y=0
 frame=0
