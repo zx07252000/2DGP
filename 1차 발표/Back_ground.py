@@ -28,9 +28,21 @@ def Start_background_to_Character_background():
     events=get_events()
     pass
 
+
 def Character_background_to_GamePlay_background():
     pass
 
+
+def Start_background_to_Ranking():
+    pass
+
+
+def Start_background_to_Shop():
+    pass
+
+
+def Start_background_to_Exit():
+    pass
 
 
 x=0
