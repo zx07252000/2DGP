@@ -2,7 +2,8 @@ import game_framework
 from pico2d import *
 import main_state
 
-
+time=0
+twinkle=0
 name = "pause1"
 image = None
 
@@ -34,13 +35,25 @@ def handle_events():
 
 def draw():
     clear_canvas()
-    image.draw(400,300)
+    if twinkle==0:
+        image.draw(400,300)
+    main_state.boy.draw()
+    main_state.grass.draw()
     update_canvas()
     pass
 
 
 
 def update():
+    global time
+    global twinkle
+    if time>1.0:
+        if twinkle==1:
+            twinkle=0
+        else:
+            twinkle=1
+        time=0
+    time+=0.005
     pass
 
 
