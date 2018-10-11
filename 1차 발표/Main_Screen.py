@@ -2,13 +2,11 @@ import game_framework
 from pico2d import *
 
 
+Main_Screen_WIDTH,Main_Screen_HEIGHT=1020,767
 
+open_canvas(Main_Screen_WIDTH,Main_Screen_HEIGHT)
 
-Start_background_WIDTH,Start_background_HEIGHT=1020,897
-
-open_canvas(Start_background_WIDTH,Start_background_HEIGHT)
-
-Start_background = load_image('Title background.png')
+Start_background = load_image('Main_Screen.png')
 
 def handle_events():
     global Background
@@ -19,31 +17,33 @@ def handle_events():
         if event.type==SDL_QUIT:
             Background = False
         elif event.type == SDL_MOUSEMOTION:
-            x, y = event.x, Start_background_HEIGHT - 1 - event.y
+            x, y = event.x, Main_Screen_HEIGHT - 1 - event.y
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             Background = False
+        elif event.type==SDL_KEYDOWN and event.key==SDLK_1
+            game_framework.Change_state(pause1)
 
 
 
-def Start_background_to_Character_background():
+def Main_Screen_to_Character_Screen():
     global x,y
     events=get_events()
     pass
 
 
-def Character_background_to_GamePlay_background():
+def Character_Screen_to_GamePlay_Screen():
     pass
 
 
-def Start_background_to_Ranking():
+def Main_Screen_to_Ranking():
     pass
 
 
-def Start_background_to_Shop():
+def Main_Screen_to_Shop():
     pass
 
 
-def Start_background_to_Exit():
+def Main_Screen_to_Exit():
     pass
 
 
@@ -55,7 +55,7 @@ Background=True
 while Background:
 
     clear_canvas()
-    Start_background.draw(Start_background_WIDTH//2,Start_background_HEIGHT//2)
+    Start_background.draw(Main_Screen_WIDTH//2,Main_Screen_HEIGHT//2)
    
 
     update_canvas()
