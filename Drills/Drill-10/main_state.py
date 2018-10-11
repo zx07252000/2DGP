@@ -6,10 +6,11 @@ from pico2d import *
 
 import game_framework
 import title_state
-
+import pause1
 
 
 name = "MainState"
+
 
 boy = None
 grass = None
@@ -46,10 +47,16 @@ class Boy:
 
 
 def enter():
+    global boy,grass
+    boy=Boy()
+    grass=Grass()
     pass
 
 
 def exit():
+    global boy,grass
+    del(boy)
+    del(grass)
     pass
 
 
@@ -62,17 +69,24 @@ def resume():
 
 
 def handle_events():
+    events = get_events()
+    for event in events:
+        if event.type == SDL_QUIT:
+            game_framework.quit()
+
+
+
     pass
 
 
 def update():
+    boy.update()
     pass
 
 
 def draw():
+    clear_canvas()
+    grass.draw()
+    boy.draw()
+    update_canvas()
     pass
-
-
-
-
-
