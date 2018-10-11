@@ -21,7 +21,7 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             Background = False
         elif event.type==SDL_KEYDOWN and event.key==SDLK_1
-            game_framework.Change_state(pause1)
+            game_framework.push_state(pause1)
 
 
 
