@@ -6,20 +6,20 @@ Start_background_WIDTH,Start_background_HEIGHT=1020,897
 
 open_canvas(Start_background_WIDTH,Start_background_HEIGHT)
 
-Start_background = load_image('Title background2.png')
+Start_background = load_image('Title background.png')
 
 def handle_events():
-    global moving
+    global Background
     global x,y
     events = get_events()
 
     for event in events:
         if event.type==SDL_QUIT:
-            moving = False
+            Background = False
         elif event.type == SDL_MOUSEMOTION:
             x, y = event.x, Start_background_HEIGHT - 1 - event.y
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            moving = False
+            Background = False
 
 
 
@@ -54,6 +54,8 @@ while Background:
 
     clear_canvas()
     Start_background.draw(Start_background_WIDTH//2,Start_background_HEIGHT//2)
+   
+
     update_canvas()
     frame=(frame+1)%1
     delay(0.01)
