@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="092014f4-c65d-48a5-8cb4-a7a01e50795e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Drills/Drill-10/game_framework.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Drills/Drill-10/game_framework.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Drills/Drill-10/main_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Drills/Drill-10/main_state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Drills/Drill-10/mygame.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Drills/Drill-10/mygame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Drills/Drill-10/start_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Drills/Drill-10/start_state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Drills/Drill-10/title_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Drills/Drill-10/title_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Drills/Drill-10/pause1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Drills/Drill-10/pause1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
