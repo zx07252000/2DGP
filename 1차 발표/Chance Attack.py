@@ -1,8 +1,10 @@
 import game_framework
 import pico2d
 
-import Main_Screen
+import Title_Logo
 
-pico2d.open_canvas()
-game_framework.run(Main_Screen)
+Main_Screen_WIDTH,Main_Screen_HEIGHT=1020,767
+
+pico2d.open_canvas(Main_Screen_WIDTH,Main_Screen_HEIGHT)
+game_framework.run(Title_Logo)
 pico2d.close_canvas()
