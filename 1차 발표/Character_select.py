@@ -7,7 +7,7 @@ from pico2d import *
 import game_framework
 import Main_Screen
 
-name ="Character select"
+name ="Character_select"
 image = None
 
 def enter():
@@ -34,13 +34,13 @@ def handle_events():
         else:
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.change_state(Main_Screen)
-           
+
     pass
 
 
 def draw():
     clear_canvas()
-    image.draw(400, 300)
+    image.clip_draw(0,0,1020,767,512, 382)
     update_canvas()
     pass
 
