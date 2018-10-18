@@ -7,7 +7,7 @@ from pico2d import *
 import game_framework
 
 
-from boy import Boy
+from boy import MeiMei
 from grass import Grass
 
 
@@ -22,7 +22,7 @@ font = None
 
 def enter():
     global boy, grass
-    boy = Boy()
+    boy = MeiMei()
     grass = Grass()
 
 
