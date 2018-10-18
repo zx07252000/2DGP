@@ -6,8 +6,8 @@ from pico2d import *
 
 import game_framework
 import Main_Screen
-import Stage1_Wukung
-import Stage1_MeiMei
+import Stage1_screen
+
 
 name ="Character_select"
 image = None
@@ -37,9 +37,9 @@ def handle_events():
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.change_state(Main_Screen)
             elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_RIGHT):
-                game_framework.change_state(Stage1_Wukung)
+                game_framework.change_state(Stage1_screen)
             elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_LEFT):
-                game_framework.change_state(Stage1_MeiMei)
+                game_framework.change_state(Stage1_screen)
 
     pass
 

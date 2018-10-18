@@ -1,3 +1,6 @@
+import random
+import json
+import os
 
 from pico2d import *
 import game_framework
@@ -24,6 +27,7 @@ def handle_events():
         else:
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.quit()
+
     pass
 
 def draw():
@@ -36,6 +40,7 @@ def draw():
         frame=(frame+1)%100
         x+=1
         delay(0.1)
+    MeiMei.draw()
     pass
 
 def update():
