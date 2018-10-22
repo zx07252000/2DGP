@@ -1,12 +1,16 @@
+import random
+import json
+import os
+
 from pico2d import *
 
-class Grass:
-    def __init__(self):
-        self.image = load_image('stage1.png')
 
+class Stage1:
+    def __init__(self):
+        self.image=load_image('stage1.png')
         self.event_que = []
 
-        self.x, self.y = 500 , 382
+        self.x, self.y = 0, 382
 
         self.dir = 1
 
@@ -21,16 +25,15 @@ class Grass:
     def do_IDLE(self):
         self.frame = (self.frame + 1) % 8
         self.timer -= 1
-
     def draw(self):
 
-        self.frame = 0
 
+        self.image.clip_draw(self.x, -200, 1040, 767,500,self.y)
 
-        self.image.clip_draw(self.frame * 10, -200, 1040, 767, self.x,self.y)
-
-        self.x -= 10
-        if(self.x==300):
-            self.x=500
-
+        self.x+=10
+        if (self.x == 1010):
+            self.x = 0
         delay(0.1)
+
+
+

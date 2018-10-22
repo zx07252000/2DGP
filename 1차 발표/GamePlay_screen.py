@@ -7,26 +7,25 @@ from pico2d import *
 import game_framework
 
 
-from Character_MeiMei import MeiMei
+from CharacterMeiMei import MeiMei
+from Stage1screen import Stage1
 
-name = "MainState"
+name = "GamePlay_screen"
 
-boy = None
-font = None
+CharacterMeiMei=None
+Stage1screen=None
 
 
 
 def enter():
-    global boy
-    boy = MeiMei()
-
-
+    global CharacterMeiMei,Stage1screen
+    CharacterMeiMei = MeiMei()
+    Stage1screen=Stage1()
 
 def exit():
-    global boy
-    del boy
-
-
+    global CharacterMeiMei,Stage1screen
+    del CharacterMeiMei
+    del Stage1screen
 
 
 def pause():
@@ -45,16 +44,15 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
                 game_framework.quit()
         else:
-            boy.handle_event(event)
-
-
+            CharacterMeiMei.handle_event(event)
 
 def update():
-    boy.update()
+    CharacterMeiMei.update()
 
 def draw():
     clear_canvas()
-    boy.draw()
+    Stage1screen.draw()
+    CharacterMeiMei.draw()
     update_canvas()
 
 

@@ -6,7 +6,7 @@ from pico2d import *
 
 import game_framework
 import Main_Screen
-import Stage1_screen
+import Stage1screen
 import GamePlay_screen
 
 
@@ -40,7 +40,7 @@ def handle_events():
             elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_RIGHT):
                 game_framework.change_state(GamePlay_screen)
             elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_LEFT):
-                game_framework.change_state(Stage1_screen)
+                game_framework.change_state(GamePlay_screen)
 
     pass
 

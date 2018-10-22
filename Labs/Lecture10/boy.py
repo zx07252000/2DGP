@@ -3,7 +3,7 @@ import game_framework
 
 IDLE, Attack = range(2)
 
-RIGHT_DOWN, LEFT_DOWN, RIGHT_UP, LEFT_UP = range(4)
+RIGHT_DOWN, LEFT_DOWN, RIGHT_UP, LEFT_UP,UP_DOWN,DOWN_DOWN = range(6)
 
 key_event_table = {
 
@@ -13,10 +13,16 @@ key_event_table = {
 
     (SDL_KEYUP, SDLK_RIGHT): RIGHT_UP,
 
-    (SDL_KEYUP, SDLK_LEFT): LEFT_UP
+    (SDL_KEYUP, SDLK_LEFT): LEFT_UP,
+
+
+    (SDL_KEYDOWN, SDLK_UP): UP_DOWN,
+
+    (SDL_KEYDOWN, SDLK_DOWN): DOWN_DOWN
 
 }
-next_state_table = { IDLE: {RIGHT_UP: Attack, LEFT_UP: Attack, RIGHT_DOWN: Attack, LEFT_DOWN: Attack},
+next_state_table = { IDLE: {RIGHT_UP: Attack, LEFT_UP: Attack, RIGHT_DOWN: Attack, LEFT_DOWN: Attack,
+                            UP_DOWN:Attack,DOWN_DOWN:Attack},
                      Attack: {RIGHT_UP: IDLE, LEFT_UP: IDLE, LEFT_DOWN: IDLE, RIGHT_DOWN: IDLE} }
 class MeiMei:
     def __init__(self):
@@ -25,13 +31,14 @@ class MeiMei:
 
         self.x, self.y = 800 // 2, 90
 
-        self.image = load_image('Character_MeiMei.png')
+        self.image = load_image('Character_MeiMei2.png')
 
         self.cur_state = IDLE
 
         self.dir = 1
 
         self.velocity = 0
+
 
         self.enter_state[IDLE](self)
     def enter_IDLE(self):
@@ -44,9 +51,9 @@ class MeiMei:
         self.timer -=1
     def draw_IDLE(self):
         if self.dir == 1:
-            self.image.clip_draw(self.frame * 100, 100, 100, 100, self.x, self.y)
+            self.image.clip_draw(self.frame * 10, 100, 100, 100, self.x, self.y)
         else:
-            self.image.clip_draw(self.frame * 100, 200, 100, 100, self.x, self.y)
+            self.image.clip_draw(self.frame * 10, 200, 100, 100, self.x, self.y)
 
     def enter_Attack(self):
         self.frame = 0
@@ -55,7 +62,9 @@ class MeiMei:
         pass
     def do_Attack(self):
         self.frame = (self.frame + 1) % 8
-        self.x += self.velocity
+        self.y += self.velocity
+
+
         self.x = clamp(25, self.x, 800-25)
     def draw_Attack(self):
         if self.velocity == 1:
@@ -97,19 +106,23 @@ class MeiMei:
 
             if key_event == RIGHT_DOWN:
 
-                self.velocity += 1
+                self.velocity += 10
 
             elif key_event == LEFT_DOWN:
 
-                self.velocity -= 1
+                self.velocity -= 10
 
             elif key_event == RIGHT_UP:
 
-                self.velocity -= 1
+                self.velocity -= 10
 
             elif key_event == LEFT_UP:
 
-                self.velocity += 1
+                self.velocity += 10
+            elif key_event==UP_DOWN:
+                self.length += 10
+            elif key_event==DOWN_DOWN:
+                self.velocity -= 10
 
             self.add_event(key_event)
 
