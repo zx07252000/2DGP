@@ -18,12 +18,15 @@ key_event_table = {
 
     (SDL_KEYDOWN, SDLK_UP): UP_DOWN,
 
+
     (SDL_KEYDOWN, SDLK_DOWN): DOWN_DOWN
+
+
 
 }
 next_state_table = { IDLE: {RIGHT_UP: Attack, LEFT_UP: Attack, RIGHT_DOWN: Attack, LEFT_DOWN: Attack,
                             UP_DOWN:Attack,DOWN_DOWN:Attack},
-                     Attack: {RIGHT_UP: IDLE, LEFT_UP: IDLE, LEFT_DOWN: IDLE, RIGHT_DOWN: IDLE} }
+                     Attack: {RIGHT_UP: IDLE, LEFT_UP: IDLE, LEFT_DOWN: IDLE, RIGHT_DOWN: IDLE,UP_DOWN:IDLE,DOWN_DOWN:IDLE} }
 class MeiMei:
     image=None
     def __init__(self):
@@ -52,9 +55,9 @@ class MeiMei:
         self.timer -=1
     def draw_IDLE(self):
         if self.dir == 1:
-            self.image.clip_draw(self.frame * 10, 100, 100, 100, self.x, self.y)
+            self.image.clip_draw(self.frame * 0, 170, 60, 60, self.x, self.y)
         else:
-            self.image.clip_draw(self.frame * 10, 200, 100, 100, self.x, self.y)
+            self.image.clip_draw(self.frame * 0, 170, 60, 60, self.x, self.y)
 
     def enter_Attack(self):
         self.frame = 0
@@ -69,9 +72,9 @@ class MeiMei:
         self.x = clamp(25, self.x, 800-25)
     def draw_Attack(self):
         if self.velocity == 1:
-            self.image.clip_draw(self.frame * 100, 100, 100, 100, self.x, self.y)
+            self.image.clip_draw(self.frame * 0, 170, 60, 60, self.x, self.y)
         else:
-            self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
+            self.image.clip_draw(self.frame * 0, 170, 60, 60, self.x, self.y)
 
     def add_event(self, event):
         self.event_que.insert(0, event)
