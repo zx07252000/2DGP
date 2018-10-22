@@ -44,6 +44,7 @@ class MeiMei:
         self.dir = 1
 
         self.velocity = 0
+        self.length=0
 
 
         self.enter_state[IDLE](self)
@@ -68,7 +69,8 @@ class MeiMei:
         pass
     def do_Attack(self):
         self.frame = (self.frame + 1) % 8
-        self.y += self.velocity
+        self.x += self.velocity
+        self.y+=self.length
 
 
         self.x = clamp(25, self.x, 800-25)
@@ -109,23 +111,27 @@ class MeiMei:
 
             if key_event == RIGHT_DOWN:
 
-                self.velocity += 1
+                self.velocity += 20
 
             elif key_event == LEFT_DOWN:
 
-                self.velocity -= 1
+                self.velocity -= 20
 
             elif key_event == RIGHT_UP:
 
-                self.velocity -= 1
+                self.velocity -= 20
 
             elif key_event == LEFT_UP:
 
-                self.velocity += 1
+                self.velocity += 20
             elif key_event==UP_DOWN:
-                self.length += 1
+                self.length += 20
+            elif key_event==UP_UP:
+                self.length -= 20
             elif key_event==DOWN_DOWN:
-                self.velocity -= 1
+                self.length -= 20
+            elif key_event==DOWN_UP:
+                self.length += 20
 
             self.add_event(key_event)
 
