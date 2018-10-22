@@ -3,7 +3,7 @@ import game_framework
 
 IDLE, Attack = range(2)
 
-RIGHT_DOWN, LEFT_DOWN, RIGHT_UP, LEFT_UP,UP_DOWN,DOWN_DOWN = range(6)
+RIGHT_DOWN, LEFT_DOWN, RIGHT_UP, LEFT_UP,UP_DOWN,DOWN_DOWN,UP_UP,DOWN_UP = range(8)
 
 key_event_table = {
 
@@ -15,18 +15,20 @@ key_event_table = {
 
     (SDL_KEYUP, SDLK_LEFT): LEFT_UP,
 
-
     (SDL_KEYDOWN, SDLK_UP): UP_DOWN,
 
+    (SDL_KEYUP, SDLK_UP): UP_UP,
 
-    (SDL_KEYDOWN, SDLK_DOWN): DOWN_DOWN
+    (SDL_KEYDOWN, SDLK_DOWN): DOWN_DOWN,
 
+    (SDL_KEYUP, SDLK_DOWN): DOWN_UP
 
 
 }
 next_state_table = { IDLE: {RIGHT_UP: Attack, LEFT_UP: Attack, RIGHT_DOWN: Attack, LEFT_DOWN: Attack,
-                            UP_DOWN:Attack,DOWN_DOWN:Attack},
-                     Attack: {RIGHT_UP: IDLE, LEFT_UP: IDLE, LEFT_DOWN: IDLE, RIGHT_DOWN: IDLE,UP_DOWN:IDLE,DOWN_DOWN:IDLE} }
+                            UP_DOWN:Attack,DOWN_DOWN:Attack,DOWN_UP:Attack,UP_UP:Attack},
+                     Attack: {RIGHT_UP: IDLE, LEFT_UP: IDLE, LEFT_DOWN: IDLE, RIGHT_DOWN:
+                         IDLE,UP_DOWN:IDLE,DOWN_DOWN:IDLE,DOWN_UP: IDLE, UP_UP: IDLE} }
 class MeiMei:
     image=None
     def __init__(self):
