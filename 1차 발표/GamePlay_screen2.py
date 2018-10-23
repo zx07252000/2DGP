@@ -7,7 +7,7 @@ from pico2d import *
 import game_framework
 
 
-from CharacterMeiMei import MeiMei
+from CharacterWukung import Wukung
 from Stage1screen import Stage1
 from Stage2screen import Stage2
 from Stage3screen import Stage3
@@ -15,7 +15,7 @@ from Stage4screen import Stage4
 
 name = "GamePlay_screen"
 
-CharacterMeiMei=None
+CharacterWukung=None
 
 Stage1screen=None
 Stage2screen=None
@@ -24,8 +24,8 @@ Stage4screen=None
 logo_time=0
 
 def enter():
-    global CharacterMeiMei,Stage1screen,Stage2screen,Stage3screen,Stage4screen
-    CharacterMeiMei = MeiMei()
+    global CharacterWukung,Stage1screen,Stage2screen,Stage3screen,Stage4screen
+    CharacterWukung = Wukung()
     Stage1screen=Stage1()
     Stage2screen = Stage2()
     Stage3screen=Stage3()
@@ -33,8 +33,8 @@ def enter():
 
 
 def exit():
-    global CharacterMeiMei,Stage1screen,Stage2screen,Stage3screen,Stage4screen
-    del CharacterMeiMei
+    global CharacterWukung,Stage1screen,Stage2screen,Stage3screen,Stage4screen
+    del CharacterWukung
     del Stage1screen
     del Stage2screen
     del Stage3screen
@@ -56,11 +56,11 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.quit()
         else:
-            CharacterMeiMei.handle_event(event)
+            CharacterWukung.handle_event(event)
 
 def update():
 
-    CharacterMeiMei.update()
+    CharacterWukung.update()
 
 def draw():
     clear_canvas()
@@ -75,7 +75,7 @@ def draw():
         Stage4screen.draw()
     delay(0.01)
     logo_time += 0.01
-    CharacterMeiMei.draw()
+    CharacterWukung.draw()
     update_canvas()
 
 

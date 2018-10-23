@@ -58,9 +58,9 @@ class MeiMei:
         self.timer -=1
     def draw_IDLE(self):
         if self.dir == 1:
-            self.image.clip_draw(self.frame * 0, 170, 60, 60, self.x, self.y)
+            self.image.clip_draw(self.frame * 0, 230, 60, 60, self.x, self.y)
         else:
-            self.image.clip_draw(self.frame * 0, 170, 60, 60, self.x, self.y)
+            self.image.clip_draw(self.frame * 0, 230, 60, 60, self.x, self.y)
 
     def enter_Attack(self):
         self.frame = 0

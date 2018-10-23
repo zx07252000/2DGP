@@ -5,7 +5,7 @@ import game_framework
 import Main_Screen
 
 import GamePlay_screen
-
+import GamePlay_screen2
 
 name ="Character_select"
 image = None
@@ -35,7 +35,7 @@ def handle_events():
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.change_state(Main_Screen)
             elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_RIGHT):
-                game_framework.change_state(GamePlay_screen)
+                game_framework.change_state(GamePlay_screen2)
             elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_LEFT):
                 game_framework.change_state(GamePlay_screen)
 
