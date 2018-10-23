@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="092014f4-c65d-48a5-8cb4-a7a01e50795e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Stage3screen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stage4screen.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,14 +26,14 @@
         <counts>
           <entry key="iml" value="1" />
           <entry key="png" value="47" />
-          <entry key="py" value="72" />
+          <entry key="py" value="74" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
           <entry key="Image" value="47" />
-          <entry key="Python" value="72" />
+          <entry key="Python" value="74" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -80,8 +80,13 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Stage3screen.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Stage4screen.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -157,6 +162,8 @@
         <option value="$PROJECT_DIR$/GamePlay_screen.py" />
         <option value="$PROJECT_DIR$/Stage2screen.py" />
         <option value="$PROJECT_DIR$/Stage3screen.py" />
+        <option value="$PROJECT_DIR$/Resource/Stage4screen.py" />
+        <option value="$PROJECT_DIR$/Stage4screen.py" />
       </list>
     </option>
   </component>
@@ -497,7 +504,13 @@
     <entry file="file://$PROJECT_DIR$/Stage2screen.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Resource/Stage4screen.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Stage3screen.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stage4screen.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
