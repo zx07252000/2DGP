@@ -10,25 +10,29 @@ import game_framework
 from CharacterMeiMei import MeiMei
 from Stage1screen import Stage1
 from Stage2screen import Stage2
+from Stage3screen import Stage3
 
 name = "GamePlay_screen"
 
 CharacterMeiMei=None
 Stage1screen=None
 Stage2screen=None
+Stage3screen=None
 logo_time=0
 
 def enter():
-    global CharacterMeiMei,Stage1screen,Stage2screen
+    global CharacterMeiMei,Stage1screen,Stage2screen,Stage3screen
     CharacterMeiMei = MeiMei()
     Stage1screen=Stage1()
     Stage2screen = Stage2()
+    Stage3screen=Stage3()
 
 def exit():
-    global CharacterMeiMei,Stage1screen,Stage2screen
+    global CharacterMeiMei,Stage1screen,Stage2screen,Stage3screen
     del CharacterMeiMei
     del Stage1screen
     del Stage2screen
+    del Stage3screen
 
 
 def pause():
@@ -60,6 +64,8 @@ def draw():
 
     if (logo_time > 1.0):
         Stage2screen.draw()
+    if(logo_time>2.0):
+        Stage3screen.draw()
     delay(0.01)
     logo_time += 0.01
     CharacterMeiMei.draw()
