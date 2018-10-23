@@ -47,6 +47,7 @@ def handle_events():
             CharacterMeiMei.handle_event(event)
 
 def update():
+
     CharacterMeiMei.update()
 
 def draw():
