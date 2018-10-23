@@ -54,8 +54,10 @@ class MeiMei:
     def exit_IDLE(self):
         pass
     def do_IDLE(self):
+
         self.frame = (self.frame + 1) % 8
         self.timer -=1
+
     def draw_IDLE(self):
         if self.dir == 1:
             self.image.clip_draw(self.frame * 0, 170, 60, 60, self.x, self.y)
@@ -69,11 +71,7 @@ class MeiMei:
         pass
     def do_Attack(self):
         self.frame = (self.frame + 1) % 8
-        self.x += self.velocity
-        self.y+=self.length
-
-
-        self.x = clamp(25, self.x, 800-25)
+        self.x = clamp(25, self.x, 1000-25)
     def draw_Attack(self):
         if self.velocity == 1:
             self.image.clip_draw(self.frame * 0, 170, 60, 60, self.x, self.y)
@@ -111,27 +109,22 @@ class MeiMei:
 
             if key_event == RIGHT_DOWN:
 
-                self.velocity += 20
+                self.x += 10
 
             elif key_event == LEFT_DOWN:
 
-                self.velocity -= 20
+                self.x -= 10
 
-            elif key_event == RIGHT_UP:
+            if key_event == UP_DOWN:
 
-                self.velocity -= 20
+                self.y += 10
 
-            elif key_event == LEFT_UP:
+            elif key_event == DOWN_DOWN:
 
-                self.velocity += 20
-            elif key_event==UP_DOWN:
-                self.length += 20
-            elif key_event==UP_UP:
-                self.length -= 20
-            elif key_event==DOWN_DOWN:
-                self.length -= 20
-            elif key_event==DOWN_UP:
-                self.length += 20
+                self.y -= 10
+
+
+
 
             self.add_event(key_event)
 
