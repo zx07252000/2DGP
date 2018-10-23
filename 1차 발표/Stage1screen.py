@@ -22,6 +22,8 @@ class Stage1:
     def exit_IDLE(self):
         pass
 
+
+
     def do_IDLE(self):
         self.frame = (self.frame + 1) % 8
         self.timer -= 1
