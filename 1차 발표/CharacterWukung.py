@@ -29,15 +29,15 @@ next_state_table = { IDLE: {RIGHT_UP: Attack, LEFT_UP: Attack, RIGHT_DOWN: Attac
                             UP_DOWN:Attack,DOWN_DOWN:Attack,DOWN_UP:Attack,UP_UP:Attack},
                      Attack: {RIGHT_UP: IDLE, LEFT_UP: IDLE, LEFT_DOWN: IDLE, RIGHT_DOWN:
                          IDLE,UP_DOWN:IDLE,DOWN_DOWN:IDLE,DOWN_UP: IDLE, UP_UP: IDLE} }
-class MeiMei:
+class Wukung:
     image=None
     def __init__(self):
 
         self.event_que = []
 
         self.x, self.y = 70, 70
-        if MeiMei.image==None:
-            MeiMei.image = load_image('CharacterMeiMei.png')
+        if Wukung.image==None:
+            Wukung.image = load_image('CharacterWukung.png')
 
         self.cur_state = IDLE
 
