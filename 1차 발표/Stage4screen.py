@@ -21,6 +21,8 @@ class Stage4:
 
     def exit_IDLE(self):
         pass
+    def update(self):
+        pass
 
 
 

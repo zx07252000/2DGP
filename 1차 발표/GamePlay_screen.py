@@ -5,7 +5,7 @@ import os
 from pico2d import *
 
 import game_framework
-
+import game_world
 
 from CharacterMeiMei import MeiMei
 from Stage1screen import Stage1
@@ -31,14 +31,14 @@ def enter():
     Stage3screen=Stage3()
     Stage4screen = Stage4()
 
+    game_world.add_object(Stage1screen, 0)
+    game_world.add_object(CharacterMeiMei, 1)
+
+
+
 
 def exit():
-    global CharacterMeiMei,Stage1screen,Stage2screen,Stage3screen,Stage4screen
-    del CharacterMeiMei
-    del Stage1screen
-    del Stage2screen
-    del Stage3screen
-    del Stage4screen
+    game_world.clear()
 
 def pause():
     pass
@@ -59,23 +59,15 @@ def handle_events():
             CharacterMeiMei.handle_event(event)
 
 def update():
-
-    CharacterMeiMei.update()
+    for game_object in game_world.all_objects():
+        game_object.update()
 
 def draw():
     clear_canvas()
-    Stage1screen.draw()
-    global logo_time
+    for game_object in game_world.all_objects():
+        game_object.draw()
 
-    if (logo_time > 1.0):
-        Stage2screen.draw()
-    if(logo_time>2.0):
-        Stage3screen.draw()
-    if (logo_time > 3.0):
-        Stage4screen.draw()
-    delay(0.01)
-    logo_time += 0.01
-    CharacterMeiMei.draw()
+
     update_canvas()
 
 

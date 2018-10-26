@@ -3,7 +3,7 @@ import json
 import os
 
 from pico2d import *
-
+from Stage2screen import Stage2
 
 class Stage1:
     def __init__(self):
@@ -11,7 +11,7 @@ class Stage1:
         self.event_que = []
 
         self.x, self.y = 0, 382
-
+        self.logo_time = 0
         self.dir = 1
 
         self.velocity = 0
@@ -22,8 +22,8 @@ class Stage1:
     def exit_IDLE(self):
         pass
 
-
-
+    def update(self):
+        pass
     def do_IDLE(self):
         self.frame = (self.frame + 1) % 8
         self.timer -= 1

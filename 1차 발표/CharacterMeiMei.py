@@ -1,10 +1,10 @@
 from pico2d import *
-from Attack_ball import Ball
+from ball import Ball
 
 import game_world
 
 # Boy Event
-RIGHT_DOWN, LEFT_DOWN, RIGHT_UP, LEFT_UP, SPACE ,UP_DOWN,DOWN_DOWN,UP_UP,DOWN_UP    = range(9)
+RIGHT_DOWN, LEFT_DOWN, RIGHT_UP, LEFT_UP,SPACE_E,UP_DOWN,DOWN_DOWN,UP_UP,DOWN_UP = range(9)
 
 key_event_table = {
     (SDL_KEYDOWN, SDLK_RIGHT): RIGHT_DOWN,
@@ -14,8 +14,9 @@ key_event_table = {
     (SDL_KEYUP, SDLK_UP): UP_UP,
     (SDL_KEYDOWN, SDLK_UP): UP_DOWN,
     (SDL_KEYUP, SDLK_DOWN): DOWN_UP,
-    (SDL_KEYDOWN, SDLK_DOWN): DOWN_DOWN,
-    (SDL_KEYDOWN, SDLK_SPACE): SPACE,
+    (SDL_KEYDOWN, SDLK_SPACE): SPACE_E,
+    (SDL_KEYDOWN, SDLK_DOWN): DOWN_DOWN
+
 }
 
 
@@ -26,33 +27,34 @@ class IdleState:
     @staticmethod
     def enter(MeiMei, event):
         if event == RIGHT_DOWN:
-            MeiMei.velocity += 5
+            MeiMei.velocity += 30
         elif event == LEFT_DOWN:
-            MeiMei.velocity -= 5
+            MeiMei.velocity -= 30
         elif event == RIGHT_UP:
-            MeiMei.velocity -= 5
+            MeiMei.velocity -= 30
         elif event == LEFT_UP:
-            MeiMei.velocity += 5
+            MeiMei.velocity += 30
         elif event == DOWN_DOWN:
-            MeiMei.length -= 5
+            MeiMei.length -= 30
         elif event == UP_DOWN:
-            MeiMei.length += 5
+            MeiMei.length += 30
         elif event == DOWN_UP:
-            MeiMei.length += 5
+            MeiMei.length += 30
         elif event == UP_UP:
-            MeiMei.length -= 5
+            MeiMei.length -= 30
 
 
 
     @staticmethod
     def exit(MeiMei, event):
-        if event == SPACE:
+        if event == SPACE_E:
             MeiMei.fire_ball()
         pass
 
     @staticmethod
     def do(MeiMei):
         MeiMei.frame = (MeiMei.frame + 1) % 8
+        MeiMei.x = clamp(25, MeiMei.x, 1020 - 25)
 
 
 
@@ -72,24 +74,26 @@ class RunState:
     @staticmethod
     def enter(MeiMei, event):
         if event == RIGHT_DOWN:
-            MeiMei.velocity += 5
+            MeiMei.velocity += 30
         elif event == LEFT_DOWN:
-            MeiMei.velocity -=5
+            MeiMei.velocity -=30
+        elif event == RIGHT_UP:
+            MeiMei.velocity -= 30
 
         elif event == DOWN_DOWN:
-            MeiMei.length -= 5
+            MeiMei.length -= 30
         elif event == UP_DOWN:
-            MeiMei.length += 5
+            MeiMei.length += 30
         elif event == DOWN_UP:
-            MeiMei.length += 5
+            MeiMei.length += 30
         elif event == UP_UP:
-            MeiMei.length -= 5
+            MeiMei.length -= 30
 
         MeiMei.dir = MeiMei.velocity
 
     @staticmethod
     def exit(MeiMei, event):
-        if event == SPACE:
+        if event == SPACE_E:
             MeiMei.fire_ball()
         pass
 
@@ -99,7 +103,8 @@ class RunState:
         MeiMei.timer -= 1
         MeiMei.x += MeiMei.velocity
         MeiMei.y += MeiMei.length
-        MeiMei.x = clamp(25, MeiMei.x, 1600 - 25)
+        MeiMei.x = clamp(25, MeiMei.x, 1020 - 25)
+        MeiMei.y = clamp(25, MeiMei.y, 767 - 25)
 
 
     @staticmethod
@@ -119,10 +124,10 @@ class RunState:
 next_state_table = {
     IdleState: {RIGHT_UP: RunState, LEFT_UP: RunState, RIGHT_DOWN: RunState, LEFT_DOWN: RunState,
                 DOWN_UP:RunState,DOWN_DOWN:RunState,UP_DOWN:RunState,UP_UP:RunState,
-                SPACE: IdleState},
+                SPACE_E: IdleState},
     RunState: {RIGHT_UP: IdleState, LEFT_UP: IdleState, LEFT_DOWN: RunState, RIGHT_DOWN: RunState,
                DOWN_UP:IdleState,DOWN_DOWN:RunState,UP_DOWN:RunState,UP_UP:IdleState,
-               SPACE: RunState}
+               SPACE_E: RunState}
 }
 
 class MeiMei:
