@@ -3,7 +3,7 @@ import game_framework
 
 IDLE, Attack = range(2)
 
-RIGHT_DOWN, LEFT_DOWN, RIGHT_UP, LEFT_UP,UP_DOWN,DOWN_DOWN,UP_UP,DOWN_UP = range(8)
+RIGHT_DOWN,RIGHT_UP, LEFT_DOWN, LEFT_UP,UP_DOWN,UP_UP,DOWN_DOWN,DOWN_UP,Attack_ball = range(9)
 
 key_event_table = {
 
@@ -21,7 +21,9 @@ key_event_table = {
 
     (SDL_KEYDOWN, SDLK_DOWN): DOWN_DOWN,
 
-    (SDL_KEYUP, SDLK_DOWN): DOWN_UP
+    (SDL_KEYUP, SDLK_DOWN): DOWN_UP,
+
+    (SDL_KEYDOWN, SDLK_SPACE): Attack_ball
 
 
 }
@@ -106,10 +108,13 @@ class MeiMei:
         if (event.type, event.key) in key_event_table:
 
             key_event = key_event_table[(event.type, event.key)]
+            count = 0
 
             if key_event == RIGHT_DOWN:
-
-                self.x+=5
+                if count==0:
+                    self.x+=5
+            elif key_event == RIGHT_UP:
+                count=1
 
             elif key_event == LEFT_DOWN:
 
