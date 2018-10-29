@@ -22,8 +22,6 @@ FRAMES_PER_ACTION = 8
 
 
 
-
-
 # Boy Event
 RIGHT_DOWN, LEFT_DOWN, RIGHT_UP, LEFT_UP, SLEEP_TIMER, SPACE = range(6)
 
@@ -62,7 +60,7 @@ class IdleState:
     @staticmethod
     def do(boy):
         boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
-        if (get_time()-boy.timer >=10):
+        if (get_time()-boy.timer > 3.00):
             boy.add_event(SLEEP_TIMER)
 
 
@@ -108,7 +106,7 @@ class RunState:
 
     @staticmethod
     def draw(boy):
-
+        boy.image.opacify(1)
         if boy.dir == 1:
             boy.image.clip_draw(int(boy.frame) * 100, 100, 100, 100, boy.x, boy.y)
         else:
@@ -119,50 +117,28 @@ class SleepState:
 
     @staticmethod
     def enter(boy, event):
-
-        boy.ghost_timer=get_time()
         boy.frame = 0
 
     @staticmethod
     def exit(boy, event):
-        boy.image.opacify(1)
         pass
 
     @staticmethod
     def do(boy):
         boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
-
-        boy.angle += 720 * game_framework.frame_time
-
+        boy.rad=boy.rad+3
     @staticmethod
     def draw(boy):
-
-
         boy.image.opacify(1)
         if boy.dir == 1:
+            boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592 / 2, '', boy.x - 25, boy.y - 25, 100, 100)
 
-            boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592 / 2, '', boy.x - 25,
-                                              boy.y - 25, 100, 100)
-            boy.image.opacify(random.randint(1, 9) * 0.1)
-            boy.image.clip_draw(int(boy.frame) * 100, 300, 100, 100,
-                                boy.x - 25 + 100 * math.cos(math.radians(boy.angle)),
-                                boy.y + 100 * math.sin(math.radians(boy.angle)))
         else:
-            boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592 / 2, '', boy.x + 25,
-                                          boy.y - 25, 100, 100)
-            boy.image.opacify(random.randint(1, 9) * 0.1)
-            boy.image.clip_draw(int(boy.frame) * 100, 200, 100, 100,
-                                boy.x - 25 + 100 * math.cos(math.radians(boy.angle)),
-                                boy.y + 100 * math.sin(math.radians(boy.angle)))
-
-
-
-
-
-
-
-
-
+            boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592 / 2, '', boy.x + 25, boy.y - 25, 100, 100)
+        boy.image.opacify(random.randint(1, 9) * 0.1)
+        if (get_time()>3.00):
+            boy.image.clip_draw(int(boy.frame) * 100, 100, 100, 100, boy.x + 100 * math.cos(math.radians(boy.rad)),
+                                boy.y + 100+25 * math.sin(math.radians(boy.rad)))
 
 
 
@@ -184,8 +160,7 @@ class Boy:
         self.dir = 1
         self.velocity = 0
         self.frame = 0
-        self.angle=90
-
+        self.rad=90
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)
