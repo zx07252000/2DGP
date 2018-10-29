@@ -48,7 +48,7 @@ class IdleState:
             boy.velocity -= RUN_SPEED_PPS
         elif event == LEFT_UP:
             boy.velocity += RUN_SPEED_PPS
-        boy.timer = 1000
+        boy.timer = get_time()
 
 
     @staticmethod
@@ -60,18 +60,18 @@ class IdleState:
     @staticmethod
     def do(boy):
         boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
-        if (get_time() > 3.00):
+        if (get_time()-boy.timer > 3.00):
             boy.add_event(SLEEP_TIMER)
 
 
 
     @staticmethod
     def draw(boy):
-
-            if boy.dir == 1:
-                boy.image.clip_draw(int(boy.frame) * 100, 300, 100, 100, boy.x, boy.y)
-            else:
-                boy.image.clip_draw(int(boy.frame) * 100, 200, 100, 100, boy.x, boy.y)
+        boy.image.opacify(1)
+        if boy.dir == 1:
+            boy.image.clip_draw(int(boy.frame) * 100, 300, 100, 100, boy.x, boy.y)
+        else:
+            boy.image.clip_draw(int(boy.frame) * 100, 200, 100, 100, boy.x, boy.y)
 
 
 
@@ -106,6 +106,7 @@ class RunState:
 
     @staticmethod
     def draw(boy):
+        boy.image.opacify(1)
         if boy.dir == 1:
             boy.image.clip_draw(int(boy.frame) * 100, 100, 100, 100, boy.x, boy.y)
         else:
@@ -125,18 +126,19 @@ class SleepState:
     @staticmethod
     def do(boy):
         boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
-
+        boy.rad=boy.rad+3
     @staticmethod
     def draw(boy):
         boy.image.opacify(1)
         if boy.dir == 1:
             boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592 / 2, '', boy.x - 25, boy.y - 25, 100, 100)
+
         else:
             boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592 / 2, '', boy.x + 25, boy.y - 25, 100, 100)
         boy.image.opacify(random.randint(1, 9) * 0.1)
         if (get_time()>3.00):
             boy.image.clip_draw(int(boy.frame) * 100, 100, 100, 100, boy.x + 100 * math.cos(math.radians(boy.rad)),
-                                boy.y + 100 * math.sin(math.radians(boy.rad)))
+                                boy.y + 100+25 * math.sin(math.radians(boy.rad)))
 
 
 
@@ -183,8 +185,8 @@ class Boy:
     def draw(self):
         self.cur_state.draw(self)
         self.font.draw(self.x-60,self.y+50,'(Time:%3.2f)'%get_time(),(255,255,0))
-        if (get_time()==3.00):
-            self.font.draw(self.x - 60, self.y + 100, '(Time:%3.2f)' % get_time(), (255, 255, 0))
+
+
 
     def handle_event(self, event):
         if (event.type, event.key) in key_event_table:
