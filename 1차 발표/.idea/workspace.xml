@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="092014f4-c65d-48a5-8cb4-a7a01e50795e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ball_.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Coin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Level.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/UI.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Drills/Drill-12/boy.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Drills/Drill-12/boy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/boss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/enemy9.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/game_framework.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="212">
-              <caret line="56" column="22" lean-forward="true" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+              <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -126,8 +132,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ball.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="67" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+            <state relative-caret-position="228">
+              <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -476,7 +482,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stage1.png">
+    <entry file="file://$PROJECT_DIR$/Stage1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/CharacterMeiMei.png">
@@ -602,7 +608,7 @@
     <entry file="file://$PROJECT_DIR$/game_framework.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
-          <caret line="56" column="22" lean-forward="true" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -615,8 +621,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ball.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="67" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+        <state relative-caret-position="228">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
