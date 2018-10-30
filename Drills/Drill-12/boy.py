@@ -300,7 +300,7 @@ class Boy:
             self.cur_state.enter(self, event)
 
     def draw(self):
-
+0000000
         self.cur_state.draw(self)
 
         self.font.draw(self.x - 60, self.y + 50, '(Time:%3.2f)' % get_time(), (255, 255, 0))
