@@ -4,75 +4,75 @@ import game_world
 class IdleState:
 
     @staticmethod
-    def enter(Sword, event):
+    def enter(Cloud, event):
         pass
 
 
     @staticmethod
-    def exit(Sword, event):
+    def exit(Cloud, event):
         pass
 
     @staticmethod
-    def do(Sword):
-        Sword.frame = (Sword.frame + 1) % 8
-        Sword.x = clamp(25, Sword.x, 1020 - 25)
+    def do(Cloud):
+        Cloud.frame = (Cloud.frame + 1) % 8
+        Cloud.x = clamp(25, Cloud.x, 1020 - 25)
         pass
 
 
 
     @staticmethod
-    def draw(Sword):
-        if Sword.dir == 1:
+    def draw(Cloud):
+        if Cloud.dir == 1:
 
-            Sword.image.clip_draw(70, 0, 60, 60, Sword.x, Sword.y)
+            Cloud.image.clip_draw(70, 0, 60, 60, Cloud.x, Cloud.y)
 
         else:
 
-            Sword.image.clip_draw(70, 0, 60, 60, Sword.x, Sword.y)
+            Cloud.image.clip_draw(70, 0, 60, 60, Cloud.x, Cloud.y)
             pass
 
 
 class RunState:
 
     @staticmethod
-    def enter(Sword, event):
+    def enter(Cloud, event):
 
-        Sword.dir = Sword.velocity
+        Cloud.dir = Cloud.velocity
         pass
 
     @staticmethod
-    def exit(Sword, event):
+    def exit(Cloud, event):
 
         pass
 
     @staticmethod
-    def do(Sword):
-        Sword.frame = (Sword.frame + 1) % 8
-        Sword.timer -= 1
-        Sword.x +=Sword.velocity
-        Sword.y += Sword.length
-        Sword.x = clamp(25, Sword.x, 1020 - 25)
-        Sword.y = clamp(25, Sword.y, 767 - 25)
+    def do(Cloud):
+        Cloud.frame = (Cloud.frame + 1) % 8
+        Cloud.timer -= 1
+        Cloud.x +=Cloud.velocity
+        Cloud.y += Cloud.length
+        Cloud.x = clamp(25, Cloud.x, 1020 - 25)
+        Cloud.y = clamp(25, Cloud.y, 767 - 25)
         pass
 
     @staticmethod
-    def draw(Sword):
-        if Sword.velocity == 1:
+    def draw(Cloud):
+        if Cloud.velocity == 1:
 
-            Sword.image.clip_draw(260, 0, 60, 60, Sword.x, Sword.y)
+            Cloud.image.clip_draw(260, 0, 60, 60, Cloud.x, Cloud.y)
 
         else:
 
-            Sword.image.clip_draw(260, 0, 60, 60, Sword.x, Sword.y)
+            Cloud.image.clip_draw(260, 0, 60, 60, Cloud.x, Cloud.y)
             pass
 
 
 
-class Sword:
+class Cloud
 
     def __init__(self):
         self.x, self.y = 70 , 70
-        self.image = load_image('Stage1_enemy_Sword.png')
+        self.image = load_image('Stage1_enemy_Cloud.png')
         self.dir = 1
         self.velocity = 0
         self.frame = 0
