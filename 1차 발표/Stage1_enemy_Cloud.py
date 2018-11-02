@@ -68,7 +68,7 @@ class RunState:
 
 
 
-class Cloud
+class Cloud:
 
     def __init__(self):
         self.x, self.y = 70 , 70
