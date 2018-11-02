@@ -32,7 +32,7 @@ class IdleState:
             pass
 
 
-class AttackState:
+class RunState:
 
     @staticmethod
     def enter(Chicken, event):
