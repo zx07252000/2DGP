@@ -14,6 +14,7 @@ from Stage3screen import Stage3
 from Stage4screen import Stage4
 from Stage1_enemy_Cloud import Cloud
 from Stage1_enemy_Chicken import Chicken
+from Stage1_enemy_Sword import Sword
 
 
 name = "GamePlay_screen"
@@ -21,6 +22,7 @@ name = "GamePlay_screen"
 CharacterMeiMei=None
 Stage1_enemy_Cloud=None
 Stage1_enemy_Chicken=None
+Stage1_enemy_Sword=None
 Stage1screen=None
 Stage2screen=None
 Stage3screen=None
@@ -28,7 +30,8 @@ Stage4screen=None
 logo_time=0
 
 def enter():
-    global CharacterMeiMei,Stage1screen,Stage2screen,Stage3screen,Stage4screen,Cloud,Chicken
+    global CharacterMeiMei,Stage1screen,Stage2screen,Stage3screen,Stage4screen,\
+        Cloud,Chicken,Sword
     CharacterMeiMei = MeiMei()
     Stage1screen=Stage1()
     Stage2screen = Stage2()
@@ -36,11 +39,13 @@ def enter():
     Stage4screen = Stage4()
     Stage1_enemy_Cloud = Cloud()
     Stage1_enemy_Chicken=Chicken()
+    Stage1_enemy_Sword=Sword()
 
     game_world.add_object(Stage1screen, 0)
     game_world.add_object(CharacterMeiMei, 1)
     game_world.add_object(Stage1_enemy_Cloud, 2)
     game_world.add_object(Stage1_enemy_Chicken, 3)
+    game_world.add_object(Stage1_enemy_Sword, 4)
 
 
 

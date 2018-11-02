@@ -1,10 +1,14 @@
 from pico2d import *
 import game_world
+import random
 
 class IdleState:
 
     @staticmethod
     def enter(Sword, event):
+        Sword.velocity-=1
+        Sword.x=1050
+        Sword.y = random.randint(100,700)
         pass
 
 
@@ -16,6 +20,7 @@ class IdleState:
     def do(Sword):
         Sword.frame = (Sword.frame + 1) % 8
         Sword.x = clamp(25, Sword.x, 1020 - 25)
+        Sword.x += Sword.velocity
         pass
 
 
