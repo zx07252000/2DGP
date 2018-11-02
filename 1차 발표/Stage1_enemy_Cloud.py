@@ -1,5 +1,6 @@
 from pico2d import *
 import game_world
+import random
 
 class IdleState:
 
@@ -8,6 +9,7 @@ class IdleState:
 
         Cloud.velocity-=1
         Cloud.x=1050
+        Cloud.y =random.randint(100,700)
 
         pass
 
@@ -21,6 +23,7 @@ class IdleState:
         Cloud.frame = (Cloud.frame + 1) % 4
         Cloud.x = clamp(25, Cloud.x, 1020 - 25)
         Cloud.x+=Cloud.velocity
+
         pass
 
 

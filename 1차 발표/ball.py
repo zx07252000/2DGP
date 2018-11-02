@@ -15,5 +15,5 @@ class Ball:
     def update(self):
         self.x += self.length+100
 
-        if self.x < 25 or self.x > 1020 - 25:
+        if self.x < 25 or self.x > 100000:
             game_world.remove_object(self)
