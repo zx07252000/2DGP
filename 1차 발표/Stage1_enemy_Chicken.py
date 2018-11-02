@@ -1,10 +1,16 @@
 from pico2d import *
 import game_world
+import random
 
 class IdleState:
 
     @staticmethod
     def enter(Chicken, event):
+
+        Chicken.velocity-=1
+        Chicken.x=1050
+        Chicken.y =random.randint(100,700)
+
         pass
 
 
@@ -14,8 +20,10 @@ class IdleState:
 
     @staticmethod
     def do(Chicken):
-        Chicken.frame = (Chicken.frame + 1) % 8
+        Chicken.frame = (Chicken.frame + 1) % 4
         Chicken.x = clamp(25, Chicken.x, 1020 - 25)
+        Chicken.x+=Chicken.velocity
+
         pass
 
 
@@ -24,11 +32,11 @@ class IdleState:
     def draw(Chicken):
         if Chicken.dir == 1:
 
-            Chicken.image.clip_draw(70, 0, 60, 60, Chicken.x, Chicken.y)
+            Chicken.image.clip_draw(95 , 50, 50, 40, Chicken.x, Chicken.y)
 
         else:
 
-            Chicken.image.clip_draw(70, 0, 60, 60, Chicken.x, Chicken.y)
+            Chicken.image.clip_draw(Chicken.frame*100, 50, 60, 40, Chicken.x, Chicken.y)
             pass
 
 
@@ -93,10 +101,10 @@ class Chicken:
             self.cur_state.exit(self, event)
             self.cur_state = next_state_table[self.cur_state][event]
             self.cur_state.enter(self, event)
-
+        pass
     def draw(self):
         self.cur_state.draw(self)
-
+        pass
 
     def handle_event(self, event):
         if (event.type, event.key) in key_event_table:
