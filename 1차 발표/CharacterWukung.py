@@ -37,7 +37,7 @@ class Wukung:
 
         self.x, self.y = 70, 70
         if Wukung.image==None:
-            Wukung.image = load_image('CharacterWukung.png')
+            Wukung.image = load_image('Resource\\CharacterWukung.png')
 
         self.cur_state = IDLE
 

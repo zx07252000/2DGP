@@ -12,7 +12,7 @@ image = None
 
 def enter():
     global image
-    image = load_image('character select.png')
+    image = load_image('Resource\\character select.png')
     pass
 
 
